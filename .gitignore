@@ -130,6 +130,7 @@ dmypy.json
 
 # env
 .env
+.envrc
 
 # vscode
 *.code-workspace
