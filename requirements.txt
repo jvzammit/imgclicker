@@ -1,0 +1,6 @@
+Django==3.0.6
+django-bootstrap4==1.1.1
+django-extensions==2.2.6
+dj-database-url==0.5.0
+flake8==3.7.9
+psycopg2-binary==2.8.5  # postgres only
