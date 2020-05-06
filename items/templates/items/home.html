@@ -1,0 +1,36 @@
+{% load bootstrap4 %}
+<html>
+  <head>
+    <!-- Bootstrap -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Viewport settings-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    {% bootstrap_css %}
+    {% block extra_head %}{% endblock %}
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>My Items List</h1>
+      <h5>Click on an image to preload an email with your default mail client!</h5>
+      {% for object in object_list %}
+        <div class="card" style='margin-top: 24px;margin-bottom: 24px;'>
+          <div class="card-body">
+            <h5 class="card-title">{{ object.title }}</h5>
+            <p class="card-text">{{ object.description }}</p>
+            <div class="text-center">
+              <a href="mailto:replace@this.com?subject={{ object.title|escape }}&body={{ object.description|escape }}">
+                <img class="card-img" src="{{ object.preview_link }}" alt="Image Link" style="max-width: 640px; max-height: 360px;">
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% bootstrap_javascript jquery='full' %}
+  </body>
+</html>

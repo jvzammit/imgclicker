@@ -48,4 +48,5 @@ Run the below:
 
 * `Item.title` was set to have a `max_length` of `128` characters as the longest `title` in the current data is `74` characters long.
 * Django `URLField` is being used for images, instead of `ImageField` because the spec does not state that the admin is not specified as required to manage image uploads. Hence going with the "quickest solution that works".
-
+* Email recipient when clicking image is unset, hence set `replace@this.com` as default recipient (which should then be replaced by user, until this part is spec'ed out)
+*  No paging to home page list (only 6 items right now)
