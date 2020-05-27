@@ -108,3 +108,29 @@ And once logged in run:
 ```
 
 Refresh the site at `http://localhost:8000/` and it should work.
+
+### To rebuild docker container
+
+Including dependencies, after code change, assuming container name `web`:
+
+```
+docker-compose up -d --no-deps --build web
+```
+
+I.e. command:
+
+```
+docker-compose up -d --no-deps --build [container-name]
+```
+
+Source [link](https://stackoverflow.com/a/42728416/1211429).
+
+### To be able to debug using `ipdb`
+
+```
+docker-compose run --service-ports web
+```
+
+Where again `web` is the container's name.
+
+Source repo example [here](https://gist.github.com/katylava/3559c29160573488a7bbccb474b55356)

@@ -5,3 +5,4 @@ dj-database-url==0.5.0
 flake8==3.7.9
 model-bakery==1.1.0
 psycopg2-binary==2.8.5  # postgres only
+ipdb==0.13.2
