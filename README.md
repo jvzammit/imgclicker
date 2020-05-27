@@ -73,3 +73,38 @@ OK
 * Email recipient when clicking image is unset, hence set `replace@this.com` as default recipient (which should then be replaced by user, until this part is spec'ed out)
 * No paging on home page list (only 6 items right now).
 * Added logic to add `/preview` where it's missing on the object's `image_url` field.
+
+
+## Docker Notes
+
+To initialise the website for Docker:
+
+* ensure any required environment variables are loaded in the host machine's environment variables (i.e. any variables in `.direnv`)
+
+And then:
+
+```
+docker-compose up  # start the containers
+docker-compose exec db sh  # log onto "db" docker container
+```
+
+Once logged in log onto `psql` using `psql -U postgres` and run:
+```
+CREATE DATABASE imgclickerdb OWNER postgres;
+```
+
+Exit both `psql` and the `db` docker container.
+
+Enter the web container at:
+```
+docker-compose exec web sh
+```
+
+And once logged in run:
+```
+./manage.py migrate
+./manage.py runscript load_items
+./manage.py createsuperuser
+```
+
+Refresh the site at `http://localhost:8000/` and it should work.
